@@ -4,7 +4,8 @@
 data.all <- rbind(data.train, data.test)
 
 #Extracts only the measurements on the mean and standard deviation for each measurement.
-TidyData <- Merged_Data %>% select(subject, code, contains("mean"), contains("std"))
+mean_std.select <- grep('mean|std', features)
+data.sub <- data.all[,c(1,2,mean_std.select + 2)
 
 #Uses descriptive activity names to name the activities in the data set
 
